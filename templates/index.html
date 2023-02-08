@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>{{title}} - Whisky Orders</title>
+</head>
+<body>
+    <header class="head">
+        <h1>Online Whisky Orders</h1>
+    </header>
+    <main class="main">
+        {%for order in orders%}
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Order Date</th>
+                <th>Whisky Name</th>
+                <th>Quantity</th>
+            </tr>
+            <tr>
+                <td>{{order.customer_name}}</td>
+                <td>{{order.order_date}}</td>
+                <td>{{order.whisky_name}}</td>
+                <td>{{order.quantity}}</td>
+            </tr>
+        </table>
+        <p>
+            <a href="orders/0">See Order Details</a>
+        </p>
+        
+        {%endfor%}
+    </main>
+    <footer>
+        <p>The Online Whisky Company</p>
+    </footer>
+</body>
+</html>
